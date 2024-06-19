@@ -1,0 +1,8 @@
+.app-footer {
+    margin-top: auto; /* Закрепление футера внизу страницы */
+  }
+  
+  .footer-content {
+    padding: 20px;
+    background-color: #f8f9fa; /* Цвет фона вашего футера */
+  }

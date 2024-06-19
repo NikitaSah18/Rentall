@@ -1,0 +1,54 @@
+<div style="margin-left: 20px; padding-top: 20px;">
+  <div class="col-md-6">
+    <div>
+      <div>
+        <h4>Регистрация пользователя</h4>
+      </div>
+      <div>
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="fullName" class="form-label">ФИО</label>
+            <input type="text" id="userFullName" class="form-control" formControlName="userFullName">
+            <div *ngIf="registrationForm.get('userFullName')?.invalid && (registrationForm.get('userFullName')?.dirty || registrationForm.get('userFullName')?.touched)">
+              <small class="text-danger" *ngIf="registrationForm.get('userFullName')?.errors?.['required']">ФИО обязательно для заполнения</small>
+              <small class="text-danger" *ngIf="registrationForm.get('userFullName')?.errors?.['minlength']">Минимальная длина - 3 символа</small>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Адрес</label>
+            <input type="text" id="userAddress" class="form-control" formControlName="userAddress">
+            <div *ngIf="registrationForm.get('userAddress')?.invalid && (registrationForm.get('userAddress')?.dirty || registrationForm.get('userAddress')?.touched)">
+              <small class="text-danger" *ngIf="registrationForm.get('userAddress')?.errors?.['required']">Адрес обязателен для заполнения</small>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="phoneNumber" class="form-label">Номер телефона</label>
+            <input type="text" id="phoneNumber" class="form-control" formControlName="phoneNumber">
+            <div *ngIf="registrationForm.get('phoneNumber')?.invalid && (registrationForm.get('phoneNumber')?.dirty || registrationForm.get('phoneNumber')?.touched)">
+              <small class="text-danger" *ngIf="registrationForm.get('phoneNumber')?.errors?.['required']">Номер телефона обязателен для заполнения</small>
+              <small class="text-danger" *ngIf="registrationForm.get('phoneNumber')?.errors?.['pattern']">Номер телефона должен состоять из 10 цифр</small>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="login" class="form-label">Логин</label>
+            <input type="text" id="login" class="form-control" formControlName="login">
+            <div *ngIf="registrationForm.get('login')?.invalid && (registrationForm.get('login')?.dirty || registrationForm.get('login')?.touched)">
+              <small class="text-danger" *ngIf="registrationForm.get('login')?.errors?.['required']">Логин обязателен для заполнения</small>
+              <small class="text-danger" *ngIf="registrationForm.get('login')?.errors?.['pattern']">Логин должен содержать только цифры</small>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Пароль</label>
+            <input type="password" id="password" class="form-control" formControlName="userPassword">
+            <div *ngIf="registrationForm.get('userPassword')?.invalid && (registrationForm.get('userPassword')?.dirty || registrationForm.get('userPassword')?.touched)">
+              <small class="text-danger" *ngIf="registrationForm.get('userPassword')?.errors?.['required']">Пароль обязателен для заполнения</small>
+              <small class="text-danger" *ngIf="registrationForm.get('userPassword')?.errors?.['minlength']">Минимальная длина пароля - 6 символов</small>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Регистрация</button>
+          <button style="margin-left: 20px;" type="button" class="btn btn-light">Отмена</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

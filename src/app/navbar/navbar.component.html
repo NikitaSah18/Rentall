@@ -1,0 +1,48 @@
+<style>
+  .navbar-brand {
+    margin-right: auto;
+    padding-left: 10px; /* Adjust this value as needed */
+  }
+  .navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+  }
+  .navbar-nav {
+    flex: 1;
+  }
+  .form-inline {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+    .form-inline .form-control {
+      margin-right: 5px; /* Adjust this value as needed */
+    }
+</style>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="#">RentAll</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Advertisement">Создать объявление</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Registration">Регистрация </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">О нас</a>
+      </li>
+    </ul>
+    <form class="form-inline">
+      <button class="btn btn-outline-primary" type="submit">Sing up</button>
+    </form>
+  </div>
+</nav>

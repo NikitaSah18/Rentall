@@ -1,0 +1,22 @@
+
+input[type="checkbox"]:not(:checked) ~ #password {
+  -webkit-text-security: disc;
+}
+
+/* Show the password when checkbox is checked */
+input[type="checkbox"]:checked ~ #password {
+  -webkit-text-security: none;
+}
+  .container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #f8f9fa;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px;
+  }

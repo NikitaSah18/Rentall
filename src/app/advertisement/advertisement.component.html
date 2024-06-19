@@ -1,0 +1,56 @@
+<div style="margin-left: 20px; padding-top: 20px;">
+    <div class="col-md-6">
+      <div>
+        <div>
+          <h4>Создание объявления</h4>
+        </div>
+        <div>
+          <form [formGroup]="advertisementForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="advName" class="form-label">Название объявления</label>
+              <input type="text" id="advName" class="form-control" formControlName="advName">
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Описание</label>
+              <input type="text" id="description" class="form-control" formControlName="description">
+            </div>
+            <div class="mb-3">
+              <label for="timeUnit" class="form-label">Единица измерения</label>
+              <input type="number" id="timeUnit" class="form-control" formControlName="timeUnit">
+            </div>
+            <div class="mb-3">
+              <label for="rentTime" class="form-label">Срок аренды</label>
+              <input type="number" id="rentTime" class="form-control" formControlName="rentTime">
+            </div>
+            <div class="mb-3">
+              <label for="advPrice" class="form-label">Цена</label>
+              <input type="text" id="advPrice" class="form-control" formControlName="advPrice">
+            </div>
+            <div class="mb-3">
+              <label for="userLogin" class="form-label">Логин пользователя</label>
+              <input type="text" id="userLogin" class="form-control" formControlName="userLogin">
+            </div>
+            <div class="mb-3">
+              <label for="imageId" class="form-label">ID изображения</label>
+              <input type="number" id="imageId" class="form-control" formControlName="imageId">
+            </div>
+            <div class="mb-3">
+              <label for="categoryId" class="form-label">Категории</label>
+              <input type="number" id="categoryId" class="form-control" formControlName="categoryId">
+            </div>
+            <div class="mb-3">
+              <label for="creationTime" class="form-label">Время создания</label>
+              <input type="text" id="creationTime" class="form-control" formControlName="creationTime" readonly>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" id="barterAllowed" class="form-check-input" formControlName="barterAllowed">
+                <label class="form-check-label" for="barterAllowed">Разрешен бартер</label>
+              </div> 
+              <button type="submit" class="btn btn-primary">Регистрация</button>            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
