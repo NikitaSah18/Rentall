@@ -1,0 +1,21 @@
+<style>
+    .card{
+        margin-top: 20px;
+    }
+</style>
+
+<div class="container">
+    <div *ngFor="let ad of advertisements" class="mb-4">
+      <div  class="card">
+        <img [src]="'/assets/images/' + ad.imageId + '.jpg'" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ ad.advName }}</h5>
+          <p class="card-text">{{ ad.description }}</p>
+          <p class="card-text">Цена: {{ ad.advPrice }}</p>
+          <p class="card-text">Дата создания: {{ ad.creationTime | date }}</p>
+          <a href="#" class="btn btn-primary">Подробнее</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
