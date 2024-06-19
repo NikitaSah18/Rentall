@@ -1,20 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
+import { AlertComponent } from '../alert/alert.component';
+
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule]
+  imports: [ReactiveFormsModule, CommonModule, AlertComponent]
 })
 export class NavbarComponent {
+  @ViewChild(AlertComponent) alertComponent!: AlertComponent;
   loginForm!: FormGroup;
 
- 
-  constructor(private fb: FormBuilder, private http: HttpClient) {}
+  constructor(private fb: FormBuilder, private http: HttpClient, private modalService: NgbModal) {}
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -26,23 +29,20 @@ export class NavbarComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       const formValue = this.loginForm.value;
-
-
-      console.log('Submitting form...', formValue);
-
-      this.http.post('http://localhost:8080/login', formValue)
+  
+      this.http.post('http://localhost:8080/login', formValue, { responseType: 'text' })
         .subscribe(response => {
-          console.log('login successful', response);
+          this.closeModal(); // Закрываем модальное окно при успешной авторизации
+          this.alertComponent.message = response;
         }, error => {
-          console.error('login failed', error);
+          console.error('Login failed', error);
         });
     } else {
       console.error('Form is invalid');
     }
   }
-
-  displayFormValues() {
-    console.log('Form Values:', this.loginForm.value);
+  
+  closeModal() {
+    this.modalService.dismissAll(); // Метод для закрытия модального окна
   }
 }
- 

@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+/* You can add global styles t
+o this file, and also import other style files */
+/* alert.component.css */
+.alert {
+    position: fixed;
+    top: 55px; /* Adjust this value to move the alert lower */
+    right: 0px; /* Adjust this value to move the alert to the right */
+    width: 300px;
+    z-index: 1050; /* Ensure it's above other elements */
+  }
+  
+  .progress-bar {
+    height: 5px;
+    background-color: #28a745; /* Change this color to match the alert color */
+    animation: progress 5s linear forwards;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  @keyframes progress {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0;
+    }
+  }
+  
