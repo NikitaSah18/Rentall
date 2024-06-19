@@ -1,16 +1,16 @@
-<style>
-  .navbar-brand {
-    margin-right: auto;
-    padding-left: 10px; /* Adjust this value as needed */
-  }
-  .navbar-collapse {
-    display: flex;
-    justify-content: space-between;
-  }
-  .navbar-nav {
-    flex: 1;
-  }
-  .form-inline {
+  <style>
+    .navbar-brand {
+      margin-right: auto;
+      padding-left: 10px; /* Adjust this value as needed */
+    }
+    .navbar-collapse {
+      display: flex;
+      justify-content: space-between;
+    }
+    .navbar-nav {
+      flex: 1;
+    }
+    .form-inline {
       display: flex;
       align-items: center;
       margin-left: auto;
@@ -18,31 +18,65 @@
     .form-inline .form-control {
       margin-right: 5px; /* Adjust this value as needed */
     }
-</style>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-  <a class="navbar-brand" href="#">RentAll</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  </style>
 
-  <div class="collapse navbar-collapse" id="navbarColor03">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="Advertisement">Создать объявление</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="Registration">Регистрация </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">О нас</a>
-      </li>
-    </ul>
-    <form class="form-inline">
-      <button class="btn btn-outline-primary" type="submit">Sing up</button>
-    </form>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #bfe8f4;">
+    <a class="navbar-brand" href="#">RentAll</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Advertisement">Создать объявление</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">О нас</a>
+        </li>
+      </ul>
+      <form class="form-inline">
+        <button style="margin-left: 20px;" class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Войти</button>
+        <li style="list-style-type: none; margin-left: 20px;">
+          <a href="Registration" class="btn btn-outline-primary">Регистрация</a>
+        </li>
+      </form>
+    </div>
+  </nav>
+
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Войти</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <label for="login" class="form-label">Логин</label>
+            <input type="text" id="login" class="form-control" formControlName="login">
+            <div *ngIf="loginForm.get('login')?.invalid && (loginForm.get('login')?.dirty || loginForm.get('login')?.touched)">
+              <small class="text-danger" *ngIf="loginForm.get('login')?.errors?.['required']">Логин обязателен для заполнения</small>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Пароль</label>
+              <input type="password" id="password" class="form-control" formControlName="userPassword">
+              <div *ngIf="loginForm.get('userPassword')?.invalid && (loginForm.get('userPassword')?.dirty || loginForm.get('userPassword')?.touched)">
+                <small class="text-danger" *ngIf="loginForm.get('userPassword')?.errors?.['required']">Пароль обязателен для заполнения</small>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+              <button type="submit" class="btn btn-primary">Войти</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-</nav>
+
+  

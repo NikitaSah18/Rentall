@@ -7,11 +7,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrationComponent } from './registration/registration.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, FormsModule, ReactiveFormsModule, CommonModule, NavbarComponent, FooterComponent, RegistrationComponent],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    imports: [RouterOutlet, FormsModule, ReactiveFormsModule, CommonModule, NavbarComponent, FooterComponent, RegistrationComponent]
 })
 export class AppComponent {
   title = 'RentAll';
