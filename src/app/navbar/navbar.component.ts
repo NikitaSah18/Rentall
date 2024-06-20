@@ -1,17 +1,16 @@
 import { Component, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { CommonModule } from '@angular/common';
 import { AlertComponent } from '../alert/alert.component';
-
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, AlertComponent]
+  imports: [ReactiveFormsModule, CommonModule,AlertComponent],
+  standalone:true
 })
 export class NavbarComponent {
   @ViewChild(AlertComponent) alertComponent!: AlertComponent;
@@ -30,19 +29,26 @@ export class NavbarComponent {
     if (this.loginForm.valid) {
       const formValue = this.loginForm.value;
   
-      this.http.post('http://localhost:8080/login', formValue, { responseType: 'text' })
-        .subscribe(response => {
-          this.closeModal(); // Закрываем модальное окно при успешной авторизации
-          this.alertComponent.message = response;
-        }, error => {
-          console.error('Login failed', error);
-        });
+      this.http.post<any>('http://localhost:8080/login', formValue)
+        .subscribe(
+          response => {
+            this.handleSuccess(response);
+          },
+          error => {
+            console.error('Login failed', error);
+          }
+        );
     } else {
       console.error('Form is invalid');
     }
   }
+
+  handleSuccess(response: any) {
+    this.closeModal(); 
+    this.alertComponent.message = response.userFullName; 
+  }
   
   closeModal() {
-    this.modalService.dismissAll(); // Метод для закрытия модального окна
+    this.modalService.dismissAll(); 
   }
 }

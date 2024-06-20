@@ -1,21 +1,17 @@
-<style>
-    .card{
-        margin-top: 20px;
-    }
-</style>
-
-<div class="container">
-    <div *ngFor="let ad of advertisements" class="mb-4">
-      <div  class="card">
-        <img [src]="'/assets/images/' + ad.imageId + '.jpg'" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{ ad.advName }}</h5>
-          <p class="card-text">{{ ad.description }}</p>
-          <p class="card-text">Цена: {{ ad.advPrice }}</p>
-          <p class="card-text">Дата создания: {{ ad.creationTime | date }}</p>
-          <a href="#" class="btn btn-primary">Подробнее</a>
+<div class="container mx-auto p-4">
+  <div class="flex flex-wrap -mx-4">
+    <div *ngFor="let ad of advertisements" class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-4">
+      <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <img src="assets/1.jpg" class="w-full h-48 object-cover" alt="Image for {{ ad.advName }}">
+        <div class="p-4">
+          <h5 class="font-bold text-xl mb-2">{{ ad.advName }}</h5>
+          <p class="text-gray-700 text-base">{{ ad.description }}</p>
+          <p class="text-gray-900 font-semibold">Цена: {{ ad.advPrice }}</p>
+          <p class="text-gray-600 text-sm">Дата создания: {{ ad.creationTime | date }}</p>
+          <a href="#" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Подробнее</a>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
+
