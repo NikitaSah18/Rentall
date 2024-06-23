@@ -1,35 +1,37 @@
-
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
-  public isLoggedIn$ = this.isLoggedInSubject.asObservable();
-  private token: string | null = null;
+  private currentUserSubject: BehaviorSubject<string | null>;
+  public isLoggedIn$: Observable<boolean>;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<string | null>(null);
+    this.isLoggedIn$ = this.currentUserSubject.asObservable().pipe(
+      map(user => !!user)
+    );
+  }
 
-  login(loginData: any): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/login', loginData).pipe(
-      tap(response => {
-        this.token = response.token;
-        this.isLoggedInSubject.next(true);
-        console.log(this.token)
+  login(loginData: { login: string; userPassword: string }): Observable<any> {
+    return this.http.post('http://localhost:8080/login', loginData).pipe(
+      tap((response: any) => {
+        if (response && response.userFullName) {
+          this.currentUserSubject.next(loginData.login);
+        }
       })
     );
   }
 
-  logout(): void {
-    this.token = null;
-    this.isLoggedInSubject.next(false);
+  logout() {
+    this.currentUserSubject.next(null);
   }
 
-  getToken(): string | null {
-    return this.token;
+  getCurrentUser(): string | null {
+    return this.currentUserSubject.value;
   }
 }

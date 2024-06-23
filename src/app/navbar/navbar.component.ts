@@ -1,20 +1,18 @@
-
-import { Component, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, ViewChild, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AlertComponent } from '../alert/alert.component';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../auth.service';
 
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
-  imports: [ReactiveFormsModule, CommonModule, AlertComponent],
+  imports: [CommonModule, AlertComponent,ReactiveFormsModule,FormsModule],
   standalone: true
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   @ViewChild(AlertComponent) alertComponent!: AlertComponent;
   loginForm!: FormGroup;
   isLoggedIn = false;
@@ -51,7 +49,7 @@ export class NavbarComponent {
 
   handleSuccess(response: any) {
     this.closeModal();
-    this.alertComponent.message = `Добро пожаловать, ${response.userFullName}!`; // Example message
+    this.alertComponent.message = `Добро пожаловать, ${response.userFullName}!`;
   }
 
   closeModal() {

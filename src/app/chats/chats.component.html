@@ -1,1 +1,23 @@
-<p>chats works!</p>
+<div class="container">
+    <div class="chat-content">
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" *ngFor="let chatMessage of chatMessages">
+            <strong>{{ chatMessage.userLogin }}: </strong>
+            <span>{{ chatMessage.message }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">
+      <div class="chat-send row">
+        <div class="col-10">
+          <input type="text" class="form-control" name="message" id="input-message" ngModel required>
+        </div>
+        <div class="col-2">
+          <button type="submit" class="btn btn-primary" [disabled]="sendForm.invalid">Send</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
