@@ -20,7 +20,7 @@ export class RegistrationComponent implements OnInit {
       userFullName: ['', [Validators.required, Validators.minLength(3)]],
       userAddress: ['', Validators.required],
       phoneNumber: ['', [Validators.required, Validators.pattern('^\\d{10}$')]],
-      login: ['', [Validators.required, Validators.pattern('^\\d+$')]],
+      login: ['', [Validators.required, Validators.minLength(3)]],
       userPassword: ['', [Validators.required, Validators.minLength(6)]],
       creationTime: [new Date()] 
     });

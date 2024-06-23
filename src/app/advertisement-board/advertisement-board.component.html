@@ -8,10 +8,14 @@
           <p class="text-gray-700 text-base">{{ ad.description }}</p>
           <p class="text-gray-900 font-semibold">Цена: {{ ad.advPrice }}</p>
           <p class="text-gray-600 text-sm">Дата создания: {{ ad.creationTime | date }}</p>
-          <a href="#" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Подробнее</a>
+          <p class="text-gray-600 text-sm">Срок аренды: {{ ad.rentTime }} {{ ad.timeUnit }}</p>
+          <p class="text-gray-600 text-sm">Разрешен бартер: {{ ad.barterAllowed ? 'Да' : 'Нет' }}</p>
+          <div class="mt-4">
+            <a href="#" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Подробнее</a>
+            <a href="mailto:{{ ad.userLogin }}" class="inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 ml-2">Написать</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-

@@ -34,7 +34,6 @@
             <input type="text" id="login" class="form-control" formControlName="login">
             <div *ngIf="registrationForm.get('login')?.invalid && (registrationForm.get('login')?.dirty || registrationForm.get('login')?.touched)">
               <small class="text-danger" *ngIf="registrationForm.get('login')?.errors?.['required']">Логин обязателен для заполнения</small>
-              <small class="text-danger" *ngIf="registrationForm.get('login')?.errors?.['pattern']">Логин должен содержать только цифры</small>
             </div>
           </div>
           <div class="mb-3">

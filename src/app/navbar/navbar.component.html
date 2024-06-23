@@ -1,50 +1,79 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">RentAll</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<style>
+  .navbar-brand {
+    margin-right: auto;
+    padding-left: 10px;
+  }
+  .navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+  }
+  .navbar-nav {
+    flex: 1;
+  }
+  .form-inline {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  .form-inline .form-control {
+    margin-right: 5px; 
+  }
+</style>
 
-  <div class="collapse navbar-collapse" id="navbarColor03">
-    <ul class="navbar-nav me-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="Advertisement-board">Объявление</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="Advertisement">Создать объявление</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">О нас</a>
-      </li>
-    </ul>
-    <form class="d-flex">
-      <button class="btn btn-outline-primary me-2" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Войти</button>
-      <a class="btn btn-outline-primary" href="Registration">Регистрация</a>
-    </form>
-  </div>
-</nav>
-
-<app-alert></app-alert>
-
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">Войти</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-          <div class="mb-3">
-            <label for="login" class="form-label">Login</label>
-            <input type="text" class="form-control" id="login" formControlName="login" required>
-          </div>
-          <div class="mb-3">
-            <label for="userPassword" class="form-label">Password</label>
-            <input type="password" class="form-control" id="userPassword" formControlName="userPassword" required>
-          </div>
-          <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
-        </form>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">RentAll</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="Advertisement-board">Объявление</a>
+        </li>
+        <li class="nav-item"  *ngIf="isLoggedIn">
+          <a class="nav-link" href="Advertisement">Создать объявление</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" href="#">О нас</a>
+        </li>
+        <li class="nav-item"  *ngIf="isLoggedIn" >
+          <a class="nav-link" href="#">Диалоги</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <button *ngIf="!isLoggedIn" class="btn btn-outline-primary me-2" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Войти</button>
+        <a *ngIf="!isLoggedIn" class="btn btn-outline-primary" href="Registration">Регистрация</a>
+        <button *ngIf="isLoggedIn" class="btn btn-outline-danger" type="button" (click)="logout()">Logout</button>
+      </form>
+    </div>
+  </nav>
+  
+  <app-alert></app-alert>
+  
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Войти</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="login" class="form-label">Login</label>
+              <input type="text" class="form-control" id="login" formControlName="login" required>
+            </div>
+            <div class="mb-3">
+              <label for="userPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="userPassword" formControlName="userPassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  
+</body>
