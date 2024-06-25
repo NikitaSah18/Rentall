@@ -1,16 +1,17 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AlertComponent } from '../alert/alert.component';
-import { CommonModule } from '@angular/common';
 import { AuthService } from '../auth.service';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AlertComponent } from '../alert/alert.component';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
-  imports: [CommonModule, AlertComponent,ReactiveFormsModule,FormsModule],
-  standalone: true
+  standalone: true,
+  imports: [CommonModule, AlertComponent, ReactiveFormsModule, FormsModule]
 })
 export class NavbarComponent implements OnInit {
   @ViewChild(AlertComponent) alertComponent!: AlertComponent;

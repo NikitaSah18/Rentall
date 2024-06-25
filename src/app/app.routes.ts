@@ -5,6 +5,7 @@ import { AdvertisementBoardComponent } from './advertisement-board/advertisement
 import { ChatComponent } from './chats/chats.component';
 
 export const routes: Routes = [
+    {path:"",component:AdvertisementBoardComponent},
     {path:"Registration", component:RegistrationComponent},
     {path:"Advertisement", component:AdvertisementComponent},
     {path:"Advertisement-board", component:AdvertisementBoardComponent},

@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ChatMessageDto } from '../models/ChatMessageDto';
 
 @Injectable({
   providedIn: 'root',
 })
-export class WebSocketService {
+export class WebSocketService implements OnDestroy {
   private webSocket: WebSocket | null = null;
   private chatMessagesSubject = new Subject<ChatMessageDto[]>();
   chatMessages$ = this.chatMessagesSubject.asObservable();
@@ -13,14 +13,20 @@ export class WebSocketService {
   constructor() {}
 
   public openWebSocket() {
-    // Simulate WebSocket connection (since server endpoint doesn't exist)
-    this.webSocket = new WebSocket('ws://localhost:8080'); // Adjust if necessary
+    if (this.webSocket) {
+      console.warn('WebSocket is already open');
+      return;
+    }
+
+    console.log('Opening WebSocket connection...');
+    this.webSocket = new WebSocket('ws://localhost:8080/login');
 
     this.webSocket.onopen = (event) => {
       console.log('WebSocket connection opened:', event);
     };
 
     this.webSocket.onmessage = (event) => {
+      console.log('Message received from WebSocket:', event.data);
       const chatMessageDto = JSON.parse(event.data) as ChatMessageDto;
       this.chatMessagesSubject.next([chatMessageDto]);
     };
@@ -37,7 +43,12 @@ export class WebSocketService {
 
   public sendMessage(chatMessageDto: ChatMessageDto) {
     if (this.webSocket) {
-      this.webSocket.send(JSON.stringify(chatMessageDto));
+      if (this.webSocket.readyState === WebSocket.OPEN) {
+        console.log('Sending message through WebSocket:', chatMessageDto);
+        this.webSocket.send(JSON.stringify(chatMessageDto));
+      } else {
+        console.error('WebSocket is not open. ReadyState:', this.webSocket.readyState);
+      }
     } else {
       console.error('WebSocket is not open');
     }
@@ -45,8 +56,15 @@ export class WebSocketService {
 
   public closeWebSocket() {
     if (this.webSocket) {
+      console.log('Closing WebSocket connection...');
       this.webSocket.close();
       this.webSocket = null;
+    } else {
+      console.warn('WebSocket is already closed or was never opened');
     }
+  }
+
+  ngOnDestroy() {
+    this.closeWebSocket();
   }
 }

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { ChatComponent } from '../chats/chats.component';
+import { ChatComponent } from '../chats/chats.component'
+
+
+
 
 @Component({
   selector: 'app-advertisement-board',
@@ -12,6 +15,7 @@ import { ChatComponent } from '../chats/chats.component';
 })
 export class AdvertisementBoardComponent implements OnInit {
   advertisements: any[] = [];
+  
 
   constructor(private http: HttpClient) {}
 

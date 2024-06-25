@@ -1,6 +1,6 @@
-<div style="margin-left: 20px; padding-top: 20px;">
-  <div class="col-md-6">
-    <div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
       <div>
         <h4>Создание объявления</h4>
       </div>
@@ -45,8 +45,9 @@
             <input type="file" id="imageId" class="form-control" (change)="onFileSelected($event)">
           </div>
           <div class="mb-3">
-            <label for="categoryId" class="form-label">Категории</label>
+            <label for="categoryId" class="form-label">Категория</label>
             <input type="number" id="categoryId" class="form-control" formControlName="categoryId">
+            <button type="button" class="btn btn-primary" >Добавить категорию</button>
           </div>
           <div class="mb-3">
             <label for="creationTime" class="form-label">Время создания</label>
@@ -56,9 +57,11 @@
             <input type="checkbox" id="barterAllowed" class="form-check-input" formControlName="barterAllowed">
             <label class="form-check-label" for="barterAllowed">Разрешен бартер</label>
           </div>
-          <button type="submit" class="btn btn-primary">Регистрация</button>
+          <button type="submit" class="btn btn-primary">Сохранить объявление</button>
         </form>
       </div>
     </div>
   </div>
 </div>
+
+

@@ -1,18 +1,21 @@
-import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { v4 as uuidv4 } from 'uuid';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-advertisement',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './advertisement.component.html',
-  styleUrls: ['./advertisement.component.css']
+  styleUrls: ['./advertisement.component.css'],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
 })
-export class AdvertisementComponent {
+export class AdvertisementComponent implements OnInit {
+
   advertisementForm!: FormGroup;
+  newCategoryForm!: FormGroup;
+  showModal: boolean = false; 
 
   constructor(private fb: FormBuilder, private http: HttpClient) {}
 
@@ -26,10 +29,47 @@ export class AdvertisementComponent {
       userLogin: ['', Validators.required],
       imageId: [null, Validators.required],
       categoryId: [0, Validators.required],
-      creationTime: [ new Date() ],
+      creationTime: [new Date()],
       barterAllowed: [true, Validators.required]
     });
+
+   /* this.newCategoryForm = this.fb.group({
+      catName: ['', Validators.required]
+    });*/
   }
+/*
+  // Метод для открытия модального окна добавления категории
+  openModal() {
+    this.showModal = true;
+  }
+
+  // Метод для закрытия модального окна добавления категории
+  closeModal() {
+    this.showModal = false;
+  }
+
+  // Метод для отправки данных новой категории на сервер
+  saveNewCategory() {
+    if (this.newCategoryForm.valid) {
+      const catName = this.newCategoryForm.get('catName')?.value;
+
+      // Отправка данных на сервер
+      this.http.post('http://localhost:8080/create_category', { catName })
+        .subscribe(response => {
+          console.log('Category created successfully', response);
+          // Можно выполнить дополнительные действия после успешного создания категории
+          // Например, обновление списка категорий в форме объявления
+          // this.updateCategoryList();
+        }, error => {
+          console.error('Category creation failed', error);
+        });
+
+      // Закрытие модального окна после отправки данных
+      this.closeModal();
+    } else {
+      console.error('Form is invalid');
+    }
+  }*/
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
@@ -60,9 +100,9 @@ export class AdvertisementComponent {
 
       this.http.post('http://localhost:8080/create_advertisement', formValue)
         .subscribe(response => {
-          console.log('Registration successful', response);
+          console.log('Advertisement created successfully', response);
         }, error => {
-          console.error('Registration failed', error);
+          console.error('Advertisement creation failed', error);
         });
     } else {
       console.error('Form is invalid');

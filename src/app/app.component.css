@@ -1,8 +1,15 @@
 .app-footer {
-    margin-top: auto; /* Закрепление футера внизу страницы */
+  
+    margin-top: auto;
+    height: 100px;
+  
   }
   
   .footer-content {
     padding: 20px;
     background-color: #f8f9fa; /* Цвет фона вашего футера */
+  }
+  .footer {
+    margin-top: auto;
+    height: 100px;
   }
