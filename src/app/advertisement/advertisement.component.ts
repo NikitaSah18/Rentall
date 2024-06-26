@@ -12,7 +12,6 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, ReactiveFormsModule],
 })
 export class AdvertisementComponent implements OnInit {
-
   advertisementForm!: FormGroup;
   newCategoryForm!: FormGroup;
   showModal: boolean = false; 
@@ -70,26 +69,31 @@ export class AdvertisementComponent implements OnInit {
       console.error('Form is invalid');
     }
   }*/
-
-  onFileSelected(event: any) {
-    const file: File = event.target.files[0];
-    if (file) {
-      const imageId = uuidv4();
-      const formData = new FormData();
-      formData.append('image', file);
-      formData.append('imageId', imageId);
-
-      this.http.post<{ imageId: number }>('http://localhost:8080/image_upload', formData)
-        .subscribe(response => {
-          this.advertisementForm.patchValue({
-            imageId: response.imageId
+   
+    onFileSelected(event: any) {
+      const file: File = event.target.files[0];
+      if (file) {
+        const formData = new FormData();
+        formData.append('image', file, file.name); 
+  
+      
+        const options = {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        };
+  
+        this.http.post<any>('http://localhost:8080/image_upload', formData, options)
+          .subscribe(response => {
+            console.log('Image uploaded successfully', response);
+          
+          }, error => {
+            console.error('Image upload failed', error);
+        
           });
-          console.log('Image uploaded successfully', response);
-        }, error => {
-          console.error('Image upload failed', error);
-        });
+      }
     }
-  }
+  
 
   onSubmit() {
     if (this.advertisementForm.valid) {
@@ -108,4 +112,7 @@ export class AdvertisementComponent implements OnInit {
       console.error('Form is invalid');
     }
   }
+
+
+
 }

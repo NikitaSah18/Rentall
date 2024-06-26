@@ -16,6 +16,7 @@ export class AdvertisementBoardComponent implements OnInit {
   filteredAdvertisements: any[] = [];
   searchTerm: string = '';
   selectedCategory: string = '';
+  price: number = 10000; 
 
   constructor(private http: HttpClient) {}
 
@@ -31,6 +32,7 @@ export class AdvertisementBoardComponent implements OnInit {
           creationTime: new Date(ad.creationTime[0], ad.creationTime[1] - 1, ad.creationTime[2], ad.creationTime[3], ad.creationTime[4], ad.creationTime[5])
         }));
         this.filteredAdvertisements = [...this.advertisements];
+        this.filterAdvertisements(); 
         console.log('Fetched advertisements:', this.advertisements); 
       }, error => {
         console.error('Failed to fetch advertisements', error);
@@ -38,6 +40,11 @@ export class AdvertisementBoardComponent implements OnInit {
   }
 
   searchAdvertisements() {
+    this.filterAdvertisements();
+  }
+
+  updatePrice(event: any): void {
+    this.price = parseInt(event.target.value);
     this.filterAdvertisements();
   }
 
@@ -53,12 +60,13 @@ export class AdvertisementBoardComponent implements OnInit {
   }
 
   filterAdvertisements() {
-    console.log('Filtering with category:', this.selectedCategory, 'and search term:', this.searchTerm); 
+    console.log('Filtering with category:', this.selectedCategory, 'and search term:', this.searchTerm, 'and price:', this.price); 
   
     this.filteredAdvertisements = this.advertisements.filter(ad => {
       const matchesCategory = this.selectedCategory ? ad.categoryName.toLowerCase().trim() === this.selectedCategory.toLowerCase().trim() : true;
       const matchesSearch = ad.advName.toLowerCase().includes(this.searchTerm.toLowerCase().trim());
-      return matchesCategory && matchesSearch;
+      const matchesPrice = ad.advPrice <= this.price;
+      return matchesCategory && matchesSearch && matchesPrice;
     });
   
     console.log('Filtered advertisements:', this.filteredAdvertisements); 
