@@ -23,12 +23,12 @@ export class AdvertisementComponent implements OnInit {
     this.advertisementForm = this.fb.group({
       advName: ['', Validators.required],
       description: ['', Validators.required],
-      timeUnit: ['minutes', Validators.required],
+      timeUnit: ['', Validators.required],
       rentTime: [0, Validators.required],
       advPrice: ['', Validators.required],
       userLogin: ['', Validators.required],
       imageId: [null, Validators.required],
-      categoryId: [0, Validators.required],
+      categoryName: ['', Validators.required],
       creationTime: [new Date()],
       barterAllowed: [true, Validators.required]
     });

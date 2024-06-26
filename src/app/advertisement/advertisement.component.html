@@ -45,9 +45,14 @@
             <input type="file" id="imageId" class="form-control" (change)="onFileSelected($event)">
           </div>
           <div class="mb-3">
-            <label for="categoryId" class="form-label">Категория</label>
-            <input type="number" id="categoryId" class="form-control" formControlName="categoryId">
-            <button type="button" class="btn btn-primary" >Добавить категорию</button>
+            <label for="categoryName" class="form-label">Категории</label>
+            <select id="categoryName" class="form-control" formControlName="categoryName">
+              <option value="Электроника">Электроника</option>
+              <option value="Дом">Дом</option>
+              <option value="Одежда">Одежда</option>
+              <option value="Аксессуары">Аксессуары</option>
+              <option value="Здоровье">Здоровье</option>
+            </select>
           </div>
           <div class="mb-3">
             <label for="creationTime" class="form-label">Время создания</label>

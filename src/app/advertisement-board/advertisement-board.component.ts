@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { ChatComponent } from '../chats/chats.component'
+import { ChatComponent } from '../chats/chats.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -9,12 +9,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './advertisement-board.component.html',
   styleUrls: ['./advertisement-board.component.css'],
   standalone: true,
-  imports: [CommonModule,ChatComponent,ReactiveFormsModule,FormsModule]
+  imports: [CommonModule, ChatComponent, ReactiveFormsModule, FormsModule]
 })
 export class AdvertisementBoardComponent implements OnInit {
   advertisements: any[] = [];
   filteredAdvertisements: any[] = [];
   searchTerm: string = '';
+  selectedCategory: string = '';
 
   constructor(private http: HttpClient) {}
 
@@ -25,21 +26,41 @@ export class AdvertisementBoardComponent implements OnInit {
   fetchAdvertisements() {
     this.http.get<any[]>('http://localhost:8080/advertisement_board')
       .subscribe(data => {
-        this.advertisements = data;
-        this.filteredAdvertisements = [...this.advertisements]; // Initialize filtered list
+        this.advertisements = data.map(ad => ({
+          ...ad,
+          creationTime: new Date(ad.creationTime[0], ad.creationTime[1] - 1, ad.creationTime[2], ad.creationTime[3], ad.creationTime[4], ad.creationTime[5])
+        }));
+        this.filteredAdvertisements = [...this.advertisements];
+        console.log('Fetched advertisements:', this.advertisements); 
       }, error => {
         console.error('Failed to fetch advertisements', error);
       });
   }
 
   searchAdvertisements() {
-    if (this.searchTerm.trim() === '') {
-      this.filteredAdvertisements = [...this.advertisements]; // Reset to all advertisements if search term is empty
-    } else {
-      this.filteredAdvertisements = this.advertisements.filter(ad =>
-        ad.advName.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
-    }
+    this.filterAdvertisements();
+  }
+
+  filterByCategory(category: string) {
+    this.selectedCategory = category;
+    console.log('Selected category:', this.selectedCategory); 
+    this.filterAdvertisements();
+  }
+
+  clearCategoryFilter() {
+    this.selectedCategory = '';
+    this.filterAdvertisements();
+  }
+
+  filterAdvertisements() {
+    console.log('Filtering with category:', this.selectedCategory, 'and search term:', this.searchTerm); 
+  
+    this.filteredAdvertisements = this.advertisements.filter(ad => {
+      const matchesCategory = this.selectedCategory ? ad.categoryName.toLowerCase().trim() === this.selectedCategory.toLowerCase().trim() : true;
+      const matchesSearch = ad.advName.toLowerCase().includes(this.searchTerm.toLowerCase().trim());
+      return matchesCategory && matchesSearch;
+    });
+  
+    console.log('Filtered advertisements:', this.filteredAdvertisements); 
   }
 }
-

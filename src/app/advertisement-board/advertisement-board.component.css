@@ -25,9 +25,64 @@ input[type="text"] {
   }
   
   svg {
-    fill: currentColor; /* Заполнение иконки текущим цветом текста */
-    width: 1em; /* Устанавливаем размер иконки */
+    fill: currentColor; 
+    width: 1em; 
     height: 1em;
   }
-  
+
+  .categories-sidebar {
+    margin-left: 0; 
+    margin-top: 20px;
+    padding-left: 0; 
+  }
+  /* Add custom styles for improved text appearance */
+.max-w-md {
+  transition: transform 0.3s ease-in-out;
+}
+
+.max-w-md:hover {
+  transform: scale(1.05);
+}
+
+h5 {
+  color: #4a5568; /* Dark gray color */
+  transition: color 0.3s ease-in-out;
+}
+
+h5:hover {
+  color: #2b6cb0; /* Blue color */
+}
+
+.text-base {
+  line-height: 1.6; /* Improved line height for better readability */
+}
+
+.text-gray-900 {
+  color: #2d3748; /* Darker gray color */
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.mt-2 {
+  margin-top: 0.5rem; /* Adjusted margin-top */
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.inline-block {
+  transition: background-color 0.3s ease-in-out;
+}
+
+.inline-block:hover {
+  background-color: #2b6cb0; /* Blue color for hover state */
+}
+
+.ml-2 {
+  margin-left: 0.5rem; /* Adjusted margin-left */
+}
+
   
