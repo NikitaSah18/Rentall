@@ -1,0 +1,32 @@
+<div id="testimonials" class="max-w-2xl mx-auto mt-8 p-4 bg-white shadow-lg rounded-lg">
+  <div *ngFor="let review of reviews" class="testimonial-box mb-4 p-4 border-b border-gray-200">
+    <div class="box-top">
+      <div class="profile">
+        <div class="profile-img">
+          <img src="assets/avatar.jpg" alt="User Image" />
+        </div>
+        <div class="name-user">
+          <strong>{{ review.userLogin }}</strong>
+        </div>
+      </div>
+      <div class="rating">
+        <div class="rating-bar">
+          <div class="rating-bar-fill" [style.width]="review.mark * 20 + '%'"></div>
+        </div>
+        <span>{{ review.mark }}/5</span>
+      </div>
+    </div>
+    <div class="client-comment">
+      <p class="text-lg">{{ review.feedback }}</p>
+    </div>
+    <p class="text-xs text-gray-600">Post Time: {{ review.postTime | date:'medium' }}</p>
+  </div>
+
+  <div class="mt-8">
+    <h3 class="text-xl font-semibold text-gray-800 mb-4">Оставьте совй отзыв</h3>
+    <input [(ngModel)]="userLogin" placeholder="Введите имя свое" class="w-full p-2 border border-gray-300 rounded mb-4">
+    <textarea [(ngModel)]="feedback" placeholder="Оставьте свой отзыв" class="w-full p-2 border border-gray-300 rounded mb-4 h-24"></textarea>
+    <input type="number" [(ngModel)]="mark" placeholder="Enter your mark" min="0" max="5" class="w-full p-2 border border-gray-300 rounded mb-4">
+    <button (click)="createReview()" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300">Отправить</button>
+  </div>
+</div>

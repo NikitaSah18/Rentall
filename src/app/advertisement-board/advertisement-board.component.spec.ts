@@ -12,6 +12,9 @@ import { ChatComponent } from '../chats/chats.component';
   imports: [CommonModule, FormsModule, ChatComponent]
 })
 export class AdvertisementBoardComponent implements OnInit {
+navigateToReviews(arg0: any) {
+throw new Error('Method not implemented.');
+}
 updatePrice($event: Event) {
 throw new Error('Method not implemented.');
 }

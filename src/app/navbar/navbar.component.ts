@@ -59,6 +59,6 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    this.alertComponent.message = 'You have logged out successfully.';
+    this.alertComponent.message = 'Вы вышли их системы.';
   }
 }

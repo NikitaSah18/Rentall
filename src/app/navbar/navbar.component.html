@@ -16,7 +16,7 @@
       margin-left: auto;
     }
     .form-inline .form-control {
-      margin-right: 5px; /* Adjust this value as needed */
+      margin-right: 5px; 
     }
 </style>
 
@@ -45,7 +45,7 @@
     <form class="d-flex">
       <button *ngIf="!isLoggedIn" class="btn btn-outline-primary me-2" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Войти</button>
       <a *ngIf="!isLoggedIn" class="btn btn-outline-primary" href="Registration">Регистрация</a>
-      <button *ngIf="isLoggedIn" class="btn btn-outline-danger" type="button" (click)="logout()">Logout</button>
+      <button *ngIf="isLoggedIn" class="btn btn-outline-danger" type="button" (click)="logout()">Выйти</button>
     </form>
   </div>
 </nav>

@@ -44,12 +44,11 @@
         <div class="max-w-md mx-auto flex items-center bg-white shadow-md rounded-lg overflow-hidden">
           <input type="text" placeholder="Поиск..." class="w-full px-4 py-2 text-gray-700 bg-gray-200 focus:outline-none rounded-l-lg"
                  [(ngModel)]="searchTerm" (keyup.enter)="searchAdvertisements()">
-                 <button class="flex-shrink-0 px-4 py-2 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 flex items-center justify-center" (click)="searchAdvertisements()">
-                  Поиск
+          <button class="flex-shrink-0 px-4 py-2 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 flex items-center justify-center" (click)="searchAdvertisements()">
+            Поиск
           </button>
         </div>
       </div>
-
 
       <div class="flex flex-wrap -mx-4">
         <div *ngFor="let ad of filteredAdvertisements" class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 px-4 mb-4">
@@ -64,8 +63,14 @@
               <p class="text-gray-600 text-sm mt-2">Категории: <span class="font-medium">{{ ad.categoryName }}</span></p>
               <p class="text-gray-600 text-sm mt-2">Разрешен бартер: <span class="font-medium">{{ ad.barterAllowed ? 'Да' : 'Нет' }}</span></p>
               <div class="mt-4 flex">
-                <a href="#" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out">Подробнее</a>
+                <a class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out" (click)="navigateToReviews(ad.advId)">Отзывы</a>
                 <a href="Chats" class="inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-300 ease-in-out ml-2">Написать</a>
+              </div>
+              <div class="flex items-center mt-4">
+                <div class="bg-yellow-400 text-white px-3 py-1 rounded-md mr-2">
+                  <span class="font-bold">{{ ad.averageMark }}</span>/5
+                </div>
+                <span class="text-gray-600 text-sm">Средняя оценка</span>
               </div>
             </div>
           </div>

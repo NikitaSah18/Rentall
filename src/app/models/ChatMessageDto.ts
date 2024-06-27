@@ -1,9 +1,9 @@
 export class ChatMessageDto {
-    userLogin: string ;
+    login: string ;
     message: string;
 
-    constructor(userLogin: string, message: string){
-        this.userLogin = userLogin;
+    constructor(login: string, message: string){
+        this.login = login;
         this.message = message;
     }
 }

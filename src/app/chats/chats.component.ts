@@ -30,8 +30,8 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   sendMessage(sendForm: NgForm) {
     const currentUser = this.authService.getCurrentUser();
-    if (currentUser) {
-      const chatMessageDto = new ChatMessageDto(currentUser, sendForm.value.message);
+    if (currentUser && currentUser.token) {
+      const chatMessageDto = new ChatMessageDto(currentUser.token, sendForm.value.message);
       this.webSocketService.sendMessage(chatMessageDto);
       sendForm.controls['message'].reset();
     } else {
