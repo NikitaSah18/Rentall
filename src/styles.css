@@ -32,4 +32,22 @@ o this file, and also import other style files */
     margin-top: auto;
     height: 100px;
   }
+  body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  
+  body.dark-theme .navbar {
+    background-color: #1f1f1f;
+  }
+  
+  body.dark-theme .modal-content {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  body.dark-theme .form-control {
+    background-color: #444;
+    color: #fff;
+  }
   

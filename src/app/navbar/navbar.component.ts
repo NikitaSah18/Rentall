@@ -5,6 +5,7 @@ import { AuthService } from '../auth.service';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AlertComponent } from '../alert/alert.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,8 +18,14 @@ export class NavbarComponent implements OnInit {
   @ViewChild(AlertComponent) alertComponent!: AlertComponent;
   loginForm!: FormGroup;
   isLoggedIn = false;
+  login: string | null = null;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private modalService: NgbModal) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private modalService: NgbModal,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -28,7 +35,20 @@ export class NavbarComponent implements OnInit {
 
     this.authService.isLoggedIn$.subscribe(isLoggedIn => {
       this.isLoggedIn = isLoggedIn;
+      if (isLoggedIn) {
+        const user = this.authService.getCurrentUser();
+        this.login = user.login;
+      } else {
+        this.login = null;
+      }
     });
+
+    // Extract login from AuthService
+    const storedUser = this.authService.getCurrentUser();
+    if (storedUser.login) {
+      this.login = storedUser.login;
+      this.isLoggedIn = true; // Assuming the user is logged in if login is present
+    }
   }
 
   onSubmit() {
@@ -51,6 +71,9 @@ export class NavbarComponent implements OnInit {
   handleSuccess(response: any) {
     this.closeModal();
     this.alertComponent.message = `Добро пожаловать, ${response.userFullName}!`;
+    // Update login from AuthService
+    const storedUser = this.authService.getCurrentUser();
+    this.login = storedUser.login;
   }
 
   closeModal() {
@@ -59,6 +82,20 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    this.alertComponent.message = 'Вы вышли их системы.';
+    this.alertComponent.message = 'Вы вышли из системы.';
+    this.isLoggedIn = false;
+    this.login = null;
+  }
+
+  toggleTheme() {
+    document.body.classList.toggle('dark-theme');
+  }
+
+  navigateToFavorites() {
+    if (this.login) {
+      this.router.navigate(['/favorites', this.login]);
+    } else {
+      console.error('Login is null');
+    }
   }
 }

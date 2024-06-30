@@ -1,0 +1,157 @@
+.navbar-brand {
+    margin-right: auto;
+    padding-left: 30px; /* Adjust this value as needed */
+  }
+  
+  .navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .navbar-nav {
+    flex: 1;
+  }
+  
+  .form-inline {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  
+  .form-inline .form-control {
+    margin-right: 5px; 
+  }
+  
+  body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  
+  body.dark-theme .navbar {
+    background-color: #1f1f1f;
+  }
+  @import url(https://fonts.googleapis.com/css?family=Raleway);
+
+  body {
+    font-family: 'Raleway', sans-serif;
+    background: #3E4651;
+  }
+  
+  .list-choice {
+    width: 150px;
+    position: relative;
+    cursor: pointer;
+    color: #000; /* Text color in the main list choice */
+  }
+  
+  .list-choice input[type="radio"] {
+    position: absolute;
+    left: -9999px;
+  }
+  
+  .list-choice-title {
+    display: block;
+    background: #D8D8D8;
+    text-align: center;
+    padding: 0.4em 0.5em;
+    box-sizing: border-box;
+    color: #000; /* Text color in the title */
+    text-shadow: 0 1px 0 #CACACA;
+    border-radius: 0.2em;
+    font-weight: bold;
+    font-size: 0.9em; /* Reduced font size */
+  }
+  
+  .list-choice:hover .list-choice-title {
+    border-radius: 0.2em 0.2em 0 0;
+  }
+  
+  .list-choice-objects label:nth-last-of-type(1) span {
+    border-radius: 0 0 0.2em 0.2em;
+  }
+  
+  .list-choice input[type="radio"] + span {
+    color: #000; /* Text color in the dropdown items */
+    background: #D8D8D8;
+    padding: 0.4em 0.5em;
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 100%; /* Full width */
+  }
+  
+  .list-choice-objects {
+    position: absolute;
+    top: 0;
+    padding-top: 2.1em;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+    max-height: 0;
+    transition: all 250ms ease;
+    z-index: 1;
+  }
+  
+  .list-choice:hover .list-choice-objects input[type="radio"] + span {
+    position: relative;
+    top: 0;
+    transition: all 250ms ease-in-out;
+  }
+  
+  .list-choice:hover input[type="radio"] + span:hover {
+    background: #BBB;
+  }
+  
+  .list-choice:hover input[type="radio"]:checked + span:hover {
+    background: #74D68E;
+  }
+  
+  .list-choice input[type="radio"]:checked + span {
+    background: #74D68E;
+    position: absolute;
+    top: 0em;
+    border-radius: 0.2em;
+  }
+  
+  .list-choice:hover input[type="radio"]:checked + span {
+    border-radius: 0;
+  }
+  
+  .list-choice:hover .list-choice-objects label:nth-last-of-type(1) input[type="radio"]:checked + span {
+    border-radius: 0 0 0.2em 0.2em;
+  }
+  
+  .list-choice:hover .list-choice-objects {
+    max-height: 540px;
+  }
+  
+  .list-choice a {
+    text-decoration: none;
+    color: #000; /* Text color for links */
+    display: block;
+    width: 100%; /* Full width */
+  }
+  
+  .list-choice a:hover {
+    text-decoration: none;
+    color: #000; /* Text color for links */
+  }
+  
+  .list-choice-title,
+  .list-choice-objects span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .list-choice-title {
+    height: 2.5em; /* Adjust the height to match the design */
+    font-size: 0.9em; /* Adjust the font size to highlight the text */
+  }
+  
+  .list-choice-objects span {
+    height: 2.5em; /* Adjust the height to match the design */
+    font-size: 0.8em; /* Adjust the font size to highlight the text */
+  }
+

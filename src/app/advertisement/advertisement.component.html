@@ -17,11 +17,11 @@
           <div class="mb-3">
             <label for="timeUnit" class="form-label">Единица измерения</label>
             <select id="timeUnit" class="form-control" formControlName="timeUnit">
-              <option value="minutes">Минуты</option>
-              <option value="hours">Часы</option>
-              <option value="days">Сутки</option>
-              <option value="months">Месяц</option>
-              <option value="years">Год</option>
+              <option value="минуты">Минуты</option>
+              <option value="часы">Часы</option>
+              <option value="день">Сутки</option>
+              <option value="месяц">Месяц</option>
+              <option value="год">Год</option>
             </select>
           </div>
           <div class="mb-3">
@@ -37,12 +37,8 @@
             <input type="text" id="userLogin" class="form-control" formControlName="userLogin">
           </div>
           <div class="mb-3">
-            <label for="imageId" class="form-label">ID изображения</label>
-            <input type="number" id="imageId" class="form-control" formControlName="imageId">
-          </div>
-          <div class="mb-3">
-            <label for="imageId" class="form-label">Загрузить изображение</label>
-            <input type="file" id="imageId" class="form-control" (change)="onFileSelected($event)">
+            <label for="imageFile" class="form-label">Загрузить изображение</label>
+            <input type="file" id="imageFile" class="form-control" (change)="onFileSelected($event)">
           </div>
           <div class="mb-3">
             <label for="categoryName" class="form-label">Категории</label>
@@ -68,5 +64,3 @@
     </div>
   </div>
 </div>
-
-

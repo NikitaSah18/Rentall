@@ -19,7 +19,7 @@ export class WebSocketService implements OnDestroy {
     }
 
     console.log('Opening WebSocket connection...');
-    this.webSocket = new WebSocket('ws://localhost:8080/chat');
+    this.webSocket = new WebSocket('ws://localhost:8080/chat?receiver=123&sender=kirill&chatId=11');
 
     this.webSocket.onopen = (event) => {
       console.log('WebSocket connection opened:', event);

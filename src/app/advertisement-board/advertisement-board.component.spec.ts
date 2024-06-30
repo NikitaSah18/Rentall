@@ -12,6 +12,11 @@ import { ChatComponent } from '../chats/chats.component';
   imports: [CommonModule, FormsModule, ChatComponent]
 })
 export class AdvertisementBoardComponent implements OnInit {
+showAlert: any;
+alertMessage: any;
+markAsFavorite(arg0: any) {
+throw new Error('Method not implemented.');
+}
 navigateToReviews(arg0: any) {
 throw new Error('Method not implemented.');
 }
@@ -20,6 +25,7 @@ throw new Error('Method not implemented.');
 }
 price: any;
 clearCategoryFilter() {
+  
 throw new Error('Method not implemented.');
 }
 filterByCategory(arg0: string) {
@@ -39,7 +45,7 @@ throw new Error('Method not implemented.');
     this.http.get<any[]>('http://localhost:8080/advertisement_board')
       .subscribe(data => {
         this.advertisements = data;
-        this.filteredAdvertisements = [...this.advertisements]; // Initialize filtered list
+        this.filteredAdvertisements = [...this.advertisements]; 
       }, error => {
         console.error('Failed to fetch advertisements', error);
       });
