@@ -8,36 +8,36 @@ import { CommonModule } from '@angular/common';
   templateUrl: './advertisement.component.html',
   styleUrls: ['./advertisement.component.css'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule,FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
 })
 export class AdvertisementComponent implements OnInit {
-markAsFavorite(arg0: any) {
-throw new Error('Method not implemented.');
-}
-navigateToReviews(arg0: any) {
-throw new Error('Method not implemented.');
-}
-showAlert: any;
-alertMessage: any;
-filteredAdvertisements: any;
-searchAdvertisements() {
-throw new Error('Method not implemented.');
-}
-searchTerm: any;
-clearCategoryFilter() {
-throw new Error('Method not implemented.');
-}
-filterByCategory(arg0: string) {
-throw new Error('Method not implemented.');
-}
-updatePrice($event: Event) {
-throw new Error('Method not implemented.');
-}
+  markAsFavorite(arg0: any) {
+    throw new Error('Method not implemented.');
+  }
+  navigateToReviews(arg0: any) {
+    throw new Error('Method not implemented.');
+  }
+  showAlert: any;
+  alertMessage: any;
+  filteredAdvertisements: any;
+  searchAdvertisements() {
+    throw new Error('Method not implemented.');
+  }
+  searchTerm: any;
+  clearCategoryFilter() {
+    throw new Error('Method not implemented.');
+  }
+  filterByCategory(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
+  updatePrice($event: Event) {
+    throw new Error('Method not implemented.');
+  }
   advertisementForm!: FormGroup;
   newCategoryForm!: FormGroup;
-  showModal: boolean = false; 
-  selectedFile: File | null = null; 
-price: any;
+  showModal: boolean = false;
+  selectedFile: File | null = null;
+  price: any;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {}
 
@@ -51,10 +51,11 @@ price: any;
       userLogin: ['', Validators.required],
       categoryName: ['', Validators.required],
       creationTime: [new Date()],
-      barterAllowed: [true, Validators.required]
+      barterAllowed: [true, Validators.required],
+      imageId: [null],
     });
   }
-   
+
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
     if (file) {
@@ -74,8 +75,9 @@ price: any;
         this.http.post<any>('http://localhost:8080/image_upload', formData)
           .subscribe(response => {
             console.log('Image uploaded successfully', response);
-            formValue.imageId = response.imageId;
-            this.http.post('http://localhost:8080/create_advertisement', formValue)
+            this.advertisementForm.patchValue({ imageId: response.imgId });
+            const updatedFormValue = this.advertisementForm.getRawValue();
+            this.http.post('http://localhost:8080/create_advertisement', updatedFormValue)
               .subscribe(adResponse => {
                 console.log('Advertisement created successfully', adResponse);
               }, adError => {
