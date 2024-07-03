@@ -42,8 +42,8 @@ export class RentHistoryComponent implements OnInit {
       data => {
         this.rentHistory = data.map(rent => ({
           rentId: rent.rentId,
-          startDateTime: rent.startDateTime,
-          endDateTime: rent.endDateTime
+          startDateTime: this.convertArrayToDate(rent.startDateTime),
+          endDateTime: this.convertArrayToDate(rent.endDateTime)
         }));
       },
       error => {
@@ -51,11 +51,16 @@ export class RentHistoryComponent implements OnInit {
       }
     );
   }
+  
+  convertArrayToDate(dateArray: number[]): string {
+    const date = new Date(dateArray[0], dateArray[1] - 1, dateArray[2], dateArray[3], dateArray[4]);
+    return this.datePipe.transform(date, 'medium') || '';
+  }
 
   generateDocument(rentId: number) {
     this.http.post('http://localhost:8080/generate-documents', { rentId }, { responseType: 'blob' }).subscribe(
       (response: Blob) => {
-        const filename = `document_${rentId}.docx`; // Замените на нужное расширение файла
+        const filename = `document_${rentId}.docx`; 
         saveAs(response, filename);
       },
       error => {

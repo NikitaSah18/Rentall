@@ -2,8 +2,8 @@
     <h2>История аренд пользователя {{ login }}</h2>
     <div *ngFor="let rent of rentHistory" class="card mb-3">
       <div class="card-body">
-        <p><strong>Начало аренды:</strong> {{ rent.startDateTime | date:'medium' }}</p>
-        <p><strong>Окончание аренды:</strong> {{ rent.endDateTime | date:'medium' }}</p>
+        <p><strong>Начало аренды:</strong> {{ rent.startDateTime }}</p>
+        <p><strong>Окончание аренды:</strong> {{ rent.endDateTime }}</p>
         <button class="btn btn-primary" (click)="generateDocument(rent.rentId)">Сгенерировать документы</button>
       </div>
     </div>
