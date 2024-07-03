@@ -50,8 +50,8 @@
             <span>Избранное</span>
           </label>
           <label>
-            <input type="radio" name="dropdown" />
-            <span>Переключить тему</span>
+            <input type="radio" name="dropdown" (click)="navigateToMyAdvertisment()" />
+            <span>Мои объявления</span>
           </label>
           <label>
             <input type="radio" name="dropdown" (click)="logout()" />

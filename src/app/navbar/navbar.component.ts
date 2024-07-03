@@ -42,12 +42,10 @@ export class NavbarComponent implements OnInit {
         this.login = null;
       }
     });
-
-    // Extract login from AuthService
     const storedUser = this.authService.getCurrentUser();
     if (storedUser.login) {
       this.login = storedUser.login;
-      this.isLoggedIn = true; // Assuming the user is logged in if login is present
+      this.isLoggedIn = true; 
     }
   }
 
@@ -71,7 +69,6 @@ export class NavbarComponent implements OnInit {
   handleSuccess(response: any) {
     this.closeModal();
     this.alertComponent.message = `Добро пожаловать, ${response.userFullName}!`;
-    // Update login from AuthService
     const storedUser = this.authService.getCurrentUser();
     this.login = storedUser.login;
   }
@@ -94,6 +91,13 @@ export class NavbarComponent implements OnInit {
   navigateToFavorites() {
     if (this.login) {
       this.router.navigate(['/favorites', this.login]);
+    } else {
+      console.error('Login is null');
+    }
+  }
+  navigateToMyAdvertisment(){
+    if (this.login) {
+      this.router.navigate(['/myAdvertisement', this.login]);
     } else {
       console.error('Login is null');
     }

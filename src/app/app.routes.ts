@@ -5,6 +5,7 @@ import { AdvertisementBoardComponent } from './advertisement-board/advertisement
 import { ChatComponent } from './chats/chats.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { MyAdvertisementComponent } from './my-advertisement/my-advertisement.component';
 
 export const routes: Routes = [
     {path:"",component:AdvertisementBoardComponent},
@@ -13,5 +14,6 @@ export const routes: Routes = [
     {path:"Advertisement-board", component:AdvertisementBoardComponent},
     {path:"Chats", component:ChatComponent},
     { path: 'reviews/:id', component: ReviewsComponent },
-    { path: 'favorites/:login', component: FavoritesComponent }
+    { path: 'favorites/:login', component: FavoritesComponent },
+    {path:'myAdvertisement/:login', component:MyAdvertisementComponent}
 ];
