@@ -73,9 +73,14 @@
                 </div>
                 <span class="text-gray-600 text-sm">Средняя оценка</span>
               </div>
-              <button class="mt-4 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition duration-300 ease-in-out" (click)="markAsFavorite(ad.advId)">
-                Добавить в избранное
-              </button>
+              <div class="mt-4 flex">
+                <button class="inline-block bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition duration-300 ease-in-out" (click)="markAsFavorite(ad.advId)">
+                  Добавить в избранное
+                </button>
+                <button class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out ml-2" (click)="navigateToRent(ad.advId)">
+                  Арендовать
+                </button>
+              </div>
             </div>
           </div>
         </div>

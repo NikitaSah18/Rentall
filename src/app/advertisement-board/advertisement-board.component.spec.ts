@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -12,8 +12,18 @@ import { ChatComponent } from '../chats/chats.component';
   imports: [CommonModule, FormsModule, ChatComponent]
 })
 export class AdvertisementBoardComponent implements OnInit {
+navigateToRent(arg0: any) {
+throw new Error('Method not implemented.');
+}
+onRentSubmit(arg0: any,_t25: any) {
+throw new Error('Method not implemented.');
+}
+openRentModal(_t23: TemplateRef<any>,arg1: any) {
+throw new Error('Method not implemented.');
+}
 showAlert: any;
 alertMessage: any;
+rentForm: any;
 markAsFavorite(arg0: any) {
 throw new Error('Method not implemented.');
 }

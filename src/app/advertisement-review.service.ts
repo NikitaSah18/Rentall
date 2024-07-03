@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdvertisementService {
+ 
   private baseUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
@@ -32,4 +33,9 @@ export class AdvertisementService {
   getAverageMark(advId: number): Observable<number> {
     return this.http.get<number>(`${this.baseUrl}/advertisement_review/advertisement/${advId}/average_mark`);
   }
+  setRent(advId: number, startDateTime: string, endDateTime: string): Observable<void> {
+    const rentData = { advId, startDateTime, endDateTime };
+    return this.http.post<void>(`${this.baseUrl}/set_rent`, rentData);
+  }
 }
+

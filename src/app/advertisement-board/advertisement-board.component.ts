@@ -121,4 +121,9 @@ export class AdvertisementBoardComponent implements OnInit {
       this.showAlert = false;
     }, 3000);
   }
+
+  navigateToRent(adId: number) {
+    const userLogin = this.authService.getCurrentUser().login;
+    this.router.navigate(['/rent', adId, userLogin]); 
+  }
 }
