@@ -102,4 +102,11 @@ export class NavbarComponent implements OnInit {
       console.error('Login is null');
     }
   }
+  navigateToRentHistory() {
+    if (this.login) {
+    this.router.navigate(['/rent-history', this.login]);
+  } else {
+    console.error('Login is null');
+  }
+  }
 }

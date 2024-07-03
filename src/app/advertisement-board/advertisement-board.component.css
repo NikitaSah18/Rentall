@@ -2,15 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* advertisement-board.component.css */
+
 input[type="text"] {
     border: none;
     border-radius: 0;
     border-top-left-radius: 0.375rem;
     border-bottom-left-radius: 0.375rem;
-    padding-left: 1rem; /* Добавляем отступ слева для текста в input */
-    background-color: #d1d5db; /* Цвет фона строки поиска */
-    color: #1f2937; /* Цвет текста в строке поиска */
+    padding-left: 1rem;
+    background-color: #d1d5db; 
+    color: #1f2937; 
   }
   
   button {

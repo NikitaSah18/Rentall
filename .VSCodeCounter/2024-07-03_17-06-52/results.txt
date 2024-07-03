@@ -1,0 +1,115 @@
+Date : 2024-07-03 17:06:52
+Directory : c:\Users\Admin\Documents\GitHub\RentallFront\src
+Total : 69 files,  2500 codes, 10 comments, 432 blanks, all 2942 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| TypeScript |         40 |      1,275 |          1 |        238 |      1,514 |
+| CSS        |         14 |        713 |          9 |        169 |        891 |
+| HTML       |         14 |        509 |          0 |         25 |        534 |
+| XML        |          1 |          3 |          0 |          0 |          3 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                           | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                              |         69 |      2,500 |         10 |        432 |      2,942 |
+| . (Files)                                                                                                      |          4 |         66 |          3 |         14 |         83 |
+| app                                                                                                            |         64 |      2,431 |          7 |        418 |      2,856 |
+| app (Files)                                                                                                    |         11 |        231 |          0 |         47 |        278 |
+| app\advertisement                                                                                              |          4 |        173 |          0 |         16 |        189 |
+| app\advertisement-board                                                                                        |          4 |        338 |          1 |         48 |        387 |
+| app\alert                                                                                                      |          2 |         60 |          0 |         11 |         71 |
+| app\categories                                                                                                 |          4 |         29 |          0 |         11 |         40 |
+| app\chats                                                                                                      |          4 |         87 |          0 |         15 |        102 |
+| app\favorites                                                                                                  |          4 |        157 |          2 |         33 |        192 |
+| app\footer                                                                                                     |          4 |         67 |          0 |         12 |         79 |
+| app\models                                                                                                     |          1 |          8 |          0 |          1 |          9 |
+| app\my-advertisement                                                                                           |          4 |        198 |          2 |         33 |        233 |
+| app\navbar                                                                                                     |          4 |        358 |          0 |         50 |        408 |
+| app\registration                                                                                               |          4 |        132 |          1 |         19 |        152 |
+| app\rent                                                                                                       |          4 |        212 |          0 |         51 |        263 |
+| app\rent-history                                                                                               |          4 |         29 |          0 |         11 |         40 |
+| app\reviews                                                                                                    |          4 |        281 |          1 |         43 |        325 |
+| app\service                                                                                                    |          2 |         71 |          0 |         17 |         88 |
+| assets                                                                                                         |          1 |          3 |          0 |          0 |          3 |
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                       | language   | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\JwtInterceptor .ts                                        | TypeScript |         25 |          0 |          5 |         30 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\advertisement-board\advertisement-board.component.css     | CSS        |         68 |          1 |         20 |         89 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\advertisement-board\advertisement-board.component.html    | HTML       |         87 |          0 |          4 |         91 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\advertisement-board\advertisement-board.component.spec.ts | TypeScript |         70 |          0 |          7 |         77 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\advertisement-board\advertisement-board.component.ts      | TypeScript |        113 |          0 |         17 |        130 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\advertisement-review.service.spec.ts                      | TypeScript |         12 |          0 |          5 |         17 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\advertisement-review.service.ts                           | TypeScript |         33 |          0 |          9 |         42 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\advertisement\advertisement.component.css                 | CSS        |          0 |          0 |          1 |          1 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\advertisement\advertisement.component.html                | HTML       |         66 |          0 |          1 |         67 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\advertisement\advertisement.component.spec.ts             | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\advertisement\advertisement.component.ts                  | TypeScript |         89 |          0 |          8 |         97 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\alert\alert.component.spec.ts                             | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\alert\alert.component.ts                                  | TypeScript |         42 |          0 |          5 |         47 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\app.component.css                                         | CSS        |         12 |          0 |          3 |         15 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\app.component.html                                        | HTML       |          7 |          0 |          1 |          8 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\app.component.spec.ts                                     | TypeScript |         25 |          0 |          5 |         30 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\app.component.ts                                          | TypeScript |         17 |          0 |          3 |         20 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\app.config.server.ts                                      | TypeScript |          9 |          0 |          3 |         12 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\app.config.ts                                             | TypeScript |         15 |          0 |          2 |         17 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\app.routes.ts                                             | TypeScript |         22 |          0 |          2 |         24 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\auth.service.ts                                           | TypeScript |         54 |          0 |          9 |         63 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\categories\categories.component.css                       | CSS        |          0 |          0 |          1 |          1 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\categories\categories.component.html                      | HTML       |          1 |          0 |          1 |          2 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\categories\categories.component.spec.ts                   | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\categories\categories.component.ts                        | TypeScript |         10 |          0 |          3 |         13 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\chats\chats.component.css                                 | CSS        |         11 |          0 |          2 |         13 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\chats\chats.component.html                                | HTML       |         22 |          0 |          1 |         23 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\chats\chats.component.spec.ts                             | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\chats\chats.component.ts                                  | TypeScript |         36 |          0 |          6 |         42 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\favorites\favorites.component.css                         | CSS        |         68 |          2 |         19 |         89 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\favorites\favorites.component.html                        | HTML       |         19 |          0 |          1 |         20 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\favorites\favorites.component.spec.ts                     | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\favorites\favorites.component.ts                          | TypeScript |         52 |          0 |          7 |         59 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\footer\footer.component.css                               | CSS        |          4 |          0 |          1 |          5 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\footer\footer.component.html                              | HTML       |         35 |          0 |          2 |         37 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\footer\footer.component.spec.ts                           | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\footer\footer.component.ts                                | TypeScript |         10 |          0 |          3 |         13 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\models\ChatMessageDto.ts                                  | TypeScript |          8 |          0 |          1 |          9 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\my-advertisement\my-advertisement.component.css           | CSS        |         68 |          2 |         17 |         87 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\my-advertisement\my-advertisement.component.html          | HTML       |         41 |          0 |          3 |         44 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\my-advertisement\my-advertisement.component.spec.ts       | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\my-advertisement\my-advertisement.component.ts            | TypeScript |         71 |          0 |          7 |         78 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\navbar\navbar.component.css                               | CSS        |        130 |          0 |         28 |        158 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\navbar\navbar.component.html                              | HTML       |        116 |          0 |          4 |        120 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\navbar\navbar.component.spec.ts                           | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\navbar\navbar.component.ts                                | TypeScript |         94 |          0 |         12 |        106 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\registration\registration.component.css                   | CSS        |         18 |          1 |          3 |         22 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\registration\registration.component.html                  | HTML       |         53 |          0 |          1 |         54 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\registration\registration.component.spec.ts               | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\registration\registration.component.ts                    | TypeScript |         43 |          0 |          9 |         52 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\rent-history\rent-history.component.css                   | CSS        |          0 |          0 |          1 |          1 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\rent-history\rent-history.component.html                  | HTML       |          1 |          0 |          1 |          2 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\rent-history\rent-history.component.spec.ts               | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\rent-history\rent-history.component.ts                    | TypeScript |         10 |          0 |          3 |         13 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\rent\rent.component.css                                   | CSS        |        115 |          0 |         37 |        152 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\rent\rent.component.html                                  | HTML       |         17 |          0 |          2 |         19 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\rent\rent.component.spec.ts                               | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\rent\rent.component.ts                                    | TypeScript |         62 |          0 |          6 |         68 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\reviews\reviews.component.css                             | CSS        |        176 |          0 |         29 |        205 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\reviews\reviews.component.html                            | HTML       |         31 |          0 |          2 |         33 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\reviews\reviews.component.spec.ts                         | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\reviews\reviews.component.ts                              | TypeScript |         56 |          1 |          6 |         63 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\service\web-socket.service.spec.ts                        | TypeScript |         12 |          0 |          5 |         17 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\app\service\web-socket.service.ts                             | TypeScript |         59 |          0 |         12 |         71 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\assets\search.svg                                             | XML        |          3 |          0 |          0 |          3 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\index.html                                                    | HTML       |         13 |          0 |          1 |         14 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\main.server.ts                                                | TypeScript |          5 |          0 |          3 |          8 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\main.ts                                                       | TypeScript |          5 |          0 |          3 |          8 |
+| c:\Users\Admin\Documents\GitHub\RentallFront\src\styles.css                                                    | CSS        |         43 |          3 |          7 |         53 |
+| Total                                                                                                          |            |      2,500 |         10 |        432 |      2,942 |
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

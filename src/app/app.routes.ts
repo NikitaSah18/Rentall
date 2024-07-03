@@ -7,6 +7,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { MyAdvertisementComponent } from './my-advertisement/my-advertisement.component';
 import { RentComponent } from './rent/rent.component';
+import { RentHistoryComponent } from './rent-history/rent-history.component';
 
 export const routes: Routes = [
     {path:"",component:AdvertisementBoardComponent},
@@ -17,5 +18,6 @@ export const routes: Routes = [
     { path: 'reviews/:id', component: ReviewsComponent },
     { path: 'favorites/:login', component: FavoritesComponent },
     {path:'myAdvertisement/:login', component:MyAdvertisementComponent},
-    { path: 'rent/:advId/:login', component: RentComponent }
+    { path: 'rent/:advId/:login', component: RentComponent },
+    {path:'rent-history/:login',component:RentHistoryComponent}
 ];
